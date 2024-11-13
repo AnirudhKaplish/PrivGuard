@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Client Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>VPN Client</h2>
+        <div class="info">
+            <p>Server IP: <span class="highlight">{{ ip }}</span></p>
+            <p>Encryption Key: <span id="key" class="highlight">{{ key }}</span></p>
+        </div>
+        
+        <label for="data" class="label">Enter Data to Send:</label>
+        <input type="text" id="data" placeholder="Type your message here">
+        
+        <button onclick="sendData()">Send to Server</button>
+
+        <p>Server Response:</p>
+        <div id="response" class="response-box">Awaiting response...</div>
+    </div>
+
+    <script>
+        async function sendData() {
+            const data = document.getElementById("data").value;
+            const responseElement = document.getElementById("response");
+
+            const response = await fetch('/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: data })
+            });
+
+            const result = await response.json();
+            responseElement.textContent = result.response;
+        }
+    </script>
+</body>
+</html>

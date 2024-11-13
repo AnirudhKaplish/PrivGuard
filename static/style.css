@@ -1,0 +1,125 @@
+/* Global Styles */
+body { 
+    font-family: Arial, sans-serif; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    margin: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    animation: gradientAnimation 6s infinite alternate;
+}
+
+/* Container Styles */
+.container { 
+    padding: 30px; 
+    background: #fff; 
+    border-radius: 12px; 
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15); 
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h2 { 
+    font-size: 1.8em; 
+    color: #4CAF50; 
+    margin-bottom: 15px; 
+    animation: bounceIn 1.5s ease-in-out;
+}
+
+/* Information Styling */
+.info {
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #4CAF50;
+    background: #e3f2fd;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Label and Input Styling */
+.label {
+    font-size: 1em;
+    color: #333;
+}
+
+input { 
+    padding: 12px; 
+    width: 100%; 
+    font-size: 1em; 
+    margin-top: 10px; 
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    outline: none; 
+    transition: border 0.3s;
+}
+input:focus {
+    border-color: #4CAF50;
+}
+
+/* Button Styling */
+button {
+    padding: 12px 0;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer; 
+    transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Response Box Styling */
+.response-box {
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 0.95em;
+    color: #333;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes gradientAnimation {
+    0% { background: linear-gradient(135deg, #667eea, #764ba2); }
+    100% { background: linear-gradient(135deg, #764ba2, #667eea); }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
